@@ -1,0 +1,49 @@
+2022-08-03 12:19:30.291 +02:00 [INF] Starting to generate class mapping for parser...
+2022-08-03 12:19:30.350 +02:00 [INF] Read all input files
+2022-08-03 12:19:32.006 +02:00 [INF] Dynamically created owl class tree
+2022-08-03 12:19:32.093 +02:00 [INF] Dynamically created c# class tree
+2022-08-03 12:19:32.118 +02:00 [INF] Created parsing structure for owl classes.
+2022-08-03 12:19:32.118 +02:00 [INF] 108 classes could be mapped correctly
+2022-08-03 12:19:32.118 +02:00 [INF] 36 were not mapped correctly
+2022-08-03 12:19:32.119 +02:00 [ERR] Could not map MandatoryToEndChoiceSegmentPath correctly, mapped with ChoiceSegmentPath instead
+2022-08-03 12:19:32.119 +02:00 [ERR] Could not map MandatoryToStartChoiceSegmentPath correctly, mapped with ChoiceSegmentPath instead
+2022-08-03 12:19:32.120 +02:00 [ERR] Could not map OptionalToEndChoiceSegmentPath correctly, mapped with ChoiceSegmentPath instead
+2022-08-03 12:19:32.121 +02:00 [ERR] Could not map OptionalToStartChoiceSegmentPath correctly, mapped with ChoiceSegmentPath instead
+2022-08-03 12:19:32.121 +02:00 [ERR] Could not map EndState correctly, mapped with State instead
+2022-08-03 12:19:32.121 +02:00 [ERR] Could not map InitialStateOfBehavior correctly, mapped with State instead
+2022-08-03 12:19:32.121 +02:00 [ERR] Could not map AbstractDoState correctly, mapped with DoState instead
+2022-08-03 12:19:32.121 +02:00 [ERR] Could not map AbstractReceiveState correctly, mapped with ReceiveState instead
+2022-08-03 12:19:32.121 +02:00 [ERR] Could not map AbstractSendState correctly, mapped with SendState instead
+2022-08-03 12:19:32.121 +02:00 [ERR] Could not map AbstractState correctly, mapped with State instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map GeneralAbstractState correctly, mapped with State instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map FinalizedState correctly, mapped with State instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map FinalizedReceiveTransition correctly, mapped with ReceiveTransition instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map PrecedenceReceiveTransition correctly, mapped with ReceiveTransition instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map TriggerReceiveTransition correctly, mapped with ReceiveTransition instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map FinalizedSendTransition correctly, mapped with SendTransition instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map PrecedenceSendTransition correctly, mapped with SendTransition instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map TriggerSendTransition correctly, mapped with SendTransition instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map FinalizedDoTransition correctly, mapped with DoTransition instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map PrecedenceDoTransition correctly, mapped with DoTransition instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map TriggerDoTransition correctly, mapped with DoTransition instead
+2022-08-03 12:19:32.122 +02:00 [ERR] Could not map AbstractPASSTransition correctly, mapped with Transition instead
+2022-08-03 12:19:32.123 +02:00 [ERR] Could not map AdviceTransitionType correctly, mapped with Transition instead
+2022-08-03 12:19:32.123 +02:00 [ERR] Could not map AdviceDoTransistion correctly, mapped with Transition instead
+2022-08-03 12:19:32.123 +02:00 [ERR] Could not map AdviceReceiveTransition correctly, mapped with Transition instead
+2022-08-03 12:19:32.123 +02:00 [ERR] Could not map AdviceSendTransition correctly, mapped with Transition instead
+2022-08-03 12:19:32.123 +02:00 [ERR] Could not map FinalizedTransitionType correctly, mapped with Transition instead
+2022-08-03 12:19:32.123 +02:00 [ERR] Could not map FlowRestrictor correctly, mapped with Transition instead
+2022-08-03 12:19:32.123 +02:00 [ERR] Could not map PrecedenceTransitionType correctly, mapped with Transition instead
+2022-08-03 12:19:32.124 +02:00 [ERR] Could not map TriggerTransitionType correctly, mapped with Transition instead
+2022-08-03 12:19:32.126 +02:00 [ERR] Could not map StandAloneMacroSubject correctly, mapped with FullySpecifiedSubject instead
+2022-08-03 12:19:32.126 +02:00 [ERR] Could not map AbstractMultiSubject correctly, mapped with MultiSubject instead
+2022-08-03 12:19:32.126 +02:00 [ERR] Could not map AbstractSingleSubject correctly, mapped with SingleSubject instead
+2022-08-03 12:19:32.126 +02:00 [ERR] Could not map StartSubject correctly, mapped with Subject instead
+2022-08-03 12:19:32.126 +02:00 [ERR] Could not map AbstractSubject correctly, mapped with Subject instead
+2022-08-03 12:19:32.126 +02:00 [ERR] Could not map AbstractLayer correctly, mapped with ModelLayer instead
+2022-08-03 12:19:32.126 +02:00 [ERR] Could not map BaseLayer correctly, mapped with ModelLayer instead
+2022-08-03 12:19:32.126 +02:00 [ERR] Could not map ExtensionLayer correctly, mapped with ModelLayer instead
+2022-08-03 12:19:32.126 +02:00 [ERR] Could not map GuardLayer correctly, mapped with ModelLayer instead
+2022-08-03 12:19:32.126 +02:00 [ERR] Could not map MacroLayer correctly, mapped with ModelLayer instead
+2022-08-03 12:19:32.126 +02:00 [ERR] Could not map Simple2DVisualistionPathPoint correctly, mapped with Simple2DVisualizationPoint instead
+2022-08-03 12:19:32.126 +02:00 [INF] Finished class mapping
