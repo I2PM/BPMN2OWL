@@ -8,7 +8,7 @@ namespace TestAppXml
 {
     class SimpleBPMNTransformation
     {
-        public PASS.PASSElements SimpleBPMN2PASS(SimpleBPMN.SimpleBPMN oldProcess)
+        public PASS.PASSElements SimpleBPMN2PASS(SimpleBPMN.SimpleBPMN oldProcess, string processName)
         {
             // neuen SimpleSBPM Process erstellen
             PASS.PASSElements newProcess = new PASS.PASSElements();
@@ -16,8 +16,8 @@ namespace TestAppXml
             // neues PASSProcessModel erstellen
             PASS.PASSProcessModel passProcessModel = new PASS.PASSProcessModel();
 
-            passProcessModel.componentId = "ID";
-            passProcessModel.componentLabel = "Neuer S-BPM Prozess";
+            passProcessModel.componentId = processName;
+            passProcessModel.componentLabel = processName;
 
             newProcess.passProcessModel = passProcessModel;
 

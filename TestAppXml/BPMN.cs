@@ -608,7 +608,7 @@ namespace BPMN
 				Outgoing == otherIntermediateCatchEvent.Outgoing;
 
 			if (TimerEventDefinition != null)
-            {
+			{
 				same = same && TimerEventDefinition.TimeDuration.Text == otherIntermediateCatchEvent.TimerEventDefinition.TimeDuration.Text;
 			}
 
@@ -616,7 +616,7 @@ namespace BPMN
 		}
 	}
 
-	[XmlRoot(ElementName = "timeDuration", Namespace = "http://www.omg.org/spec/BPMN/20100524/MODEL")]
+	[XmlRoot(ElementName = "timeDuration")]//, Namespace = "http://www.omg.org/spec/BPMN/20100524/MODEL")]
 	public class TimeDuration
 	{
 		[XmlAttribute(AttributeName = "id")]

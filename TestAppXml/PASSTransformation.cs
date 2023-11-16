@@ -29,13 +29,13 @@ namespace TestAppXml
                 ISubjectBaseBehavior subjBe = new SubjectBaseBehavior(layer, oldSubj.subjectBehavior);
                 IFullySpecifiedSubject subj = new FullySpecifiedSubject(layer, oldSubj.componentLabel, null, subjBe);
                 subj.setModelComponentID(oldSubj.componentId);
+                model.addElementWithUnspecifiedRelation(subj);
                 if (IsStartSubject(oldProcess.subjectBehaviors, oldSubj.subjectBehavior))
                 {
                     subj.assignRole(ISubject.Role.StartSubject);
                     model.addStartSubject(subj);
                 }
                 
-
                 //todo Multi Subject
             }
 
@@ -139,7 +139,10 @@ namespace TestAppXml
                         receiveState.setModelComponentID(oldAction.state.componentId);
 
                         IAction action = receiveState.getAction();
-                        action.setModelComponentID(oldAction.componentId);
+                        // Ich habe das hier auskommentiert, weil dadurch bei Camunda 5 die ComponentIDs doppelt gesetzt wurden.
+                        // Dürfte ein alps.net Bug sein. (v0.8.2.3)
+                        // Dadurch wird die Default ID beibehalten und nicht meine eigens erstellte ID Verwendet.
+                        // action.setModelComponentID(oldAction.componentId);
 
                         if (oldAction.state.isStartState)
                         {
@@ -187,7 +190,7 @@ namespace TestAppXml
                                 sendTransition.setModelComponentID(oldTrans.componentId);
 
                                 IMessageExchange messEx = messageExchangeList.Find(a => a.getModelComponentID() == oldTrans.transitionCondition.performedMessageExchange.componentId);
-                                ISendTransitionCondition sendTranCon = new SendTransitionCondition(sendTransition, oldTrans.transitionCondition.componentLabel, null, messEx, 0, 0, null, messEx.getReceiver(), messEx.getMessageType());
+                                ISendTransitionCondition sendTranCon = new SendTransitionCondition(sendTransition, oldTrans.transitionCondition.componentLabel, null, messEx, 0, 0, null /* ISendTransitionCondition.SendTypes.STANDARD*/, messEx.getReceiver(), messEx.getMessageType());
                                 sendTranCon.setModelComponentID(oldTrans.transitionCondition.componentId);
                             }
 
@@ -205,7 +208,7 @@ namespace TestAppXml
                                 receiveTransition.setModelComponentID(oldTrans.componentId);
 
                                 IMessageExchange messEx = messageExchangeList.Find(a => a.getModelComponentID() == oldTrans.transitionCondition.performedMessageExchange.componentId);
-                                IReceiveTransitionCondition receiveTranCon = new ReceiveTransitionCondition(receiveTransition, oldTrans.transitionCondition.componentLabel, null, messEx, 0, 0, null, messEx.getReceiver(), messEx.getMessageType());
+                                IReceiveTransitionCondition receiveTranCon = new ReceiveTransitionCondition(receiveTransition, oldTrans.transitionCondition.componentLabel, null, messEx, 0, 0, null /*IReceiveTransitionCondition.ReceiveTypes.STANDARD*/, messEx.getSender(), messEx.getMessageType());
                                 receiveTranCon.setModelComponentID(oldTrans.transitionCondition.componentId);
                             }
 
@@ -218,11 +221,13 @@ namespace TestAppXml
                                 {
                                     oldTrans.componentLabel = "Standard DayTimeTimerTransition";
                                 }
-
-                                IDayTimeTimerTransition timerTransition = new DayTimeTimerTransition(sourceState, targetState, oldTrans.componentLabel);
+                                
+                                //IDayTimeTimerTransition timerTransition = new DayTimeTimerTransition(sourceState, targetState, oldTrans.componentLabel);
+                                ITimerTransition timerTransition = new TimerTransition(sourceState, targetState, oldTrans.componentLabel);
                                 timerTransition.setModelComponentID(oldTrans.componentId);
                                 
-                                IDayTimeTimerTransitionCondition timerTranCon = new DayTimeTimerTransitionCondition(timerTransition, oldTrans.transitionCondition.componentLabel, null, oldTrans.transitionCondition.duration);
+                                //IDayTimeTimerTransitionCondition timerTranCon = new DayTimeTimerTransitionCondition(timerTransition, oldTrans.transitionCondition.componentLabel, null, oldTrans.transitionCondition.duration);
+                                ITimerTransitionCondition timerTranCon = new TimerTransitionCondition(timerTransition, oldTrans.transitionCondition.componentLabel, null, oldTrans.transitionCondition.duration);
                                 timerTranCon.setModelComponentID(oldTrans.transitionCondition.componentId);
                                 timerTranCon.setTimeValue(oldTrans.transitionCondition.duration);
                             }

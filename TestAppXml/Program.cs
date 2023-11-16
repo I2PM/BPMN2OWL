@@ -14,7 +14,7 @@ namespace TestAppXml
 {
     class Program
     {
-        public static string folderPath = @"C:\Users\Tim\Dropbox\FH Joanneum\MAB\";
+        public static string folderPath = @"C:\Users\Tim\OneDrive\Desktop\BPMN-PASS\";
 
         static void Main(string[] args)
         {
@@ -33,11 +33,11 @@ namespace TestAppXml
                 program.CleanFile(fileName);
                 PASS.PASSElements pass = program.Bpmn2Pass(fileName);
                 program.WritePASS(pass, fileName);
-                BPMN.Definitions reverseBpmn = program.PASS2Bpmn(pass);
-                program.WriteBPMN(reverseBpmn, fileName);
+                //BPMN.Definitions reverseBpmn = program.PASS2Bpmn(pass);
+                //program.WriteBPMN(reverseBpmn, fileName);
 
                 // Compare Input and Reverse
-                program.CompareModels(fileName);
+                //program.CompareModels(fileName);
             }
             
         }
@@ -48,11 +48,17 @@ namespace TestAppXml
             string rawFile = File.ReadAllText(folderPath + @"BPMN\Input\" + fileName + ".bpmn");
 
             // file reinigen
-            string cleanFile = RemoveTags(rawFile, "<extensionElements>", "</extensionElements>");
+            string cleanFile = rawFile.Replace("bpmn:", "");
+            cleanFile = RemoveTags(cleanFile, "<extensionElements>", "</extensionElements>");
+            cleanFile = cleanFile.Replace("bpmn:", "");
             cleanFile = cleanFile.Replace("<extensionElements/>", "");
             cleanFile = cleanFile.Replace("xsi:type=\"tFormalExpression\"", "");
             cleanFile = cleanFile.Replace("&#10;", " ");
-            XDocument xdoc = XDocument.Parse(cleanFile);
+            
+            cleanFile = cleanFile.Replace("xmlns:bpmn=", "xmlns=");
+
+        
+         XDocument xdoc = XDocument.Parse(cleanFile);
 
             // file speichern
             xdoc.Save(folderPath + @"BPMN\Clean\" + fileName + ".bpmn");
@@ -68,7 +74,7 @@ namespace TestAppXml
 
             // bpmn File Umwandeln
             SimpleBPMN.SimpleBPMN simpleBPMN = new BPMNTransformation().BPMN2SimpleBPMN(bpmn);
-            PASS.PASSElements pass = new SimpleBPMNTransformation().SimpleBPMN2PASS(simpleBPMN);
+            PASS.PASSElements pass = new SimpleBPMNTransformation().SimpleBPMN2PASS(simpleBPMN, fileName);
 
             return pass;
         }
